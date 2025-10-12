@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.portfolio_navigation_links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  text-decoration: none;
+}
+.portfolio_header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #000000;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.portfolio_logo {
+  margin-left: -150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* або center, якщо хочеш центрувати */
+}
+.portfolio_logo_name {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.portfolio_logo_dot {
+  color: rgb(214, 141, 5);
+  font-size: 25px;
+  font-weight: bold;
+}
+.portfolio_navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.portfolio_navigation_link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.126);
+  font-weight: bold;
+}
+.portfolio_navigation_link:hover {
+  color: white;
+  transition: 0.3s;
+}
+.portfolio_navigation_social_icons {
+  margin-left: 100px;
+  display: flex;
+  gap: 25px;
+}
+.portfolio_navigation_social_icons i {
+  color: rgb(214, 141, 5);
+  font-size: 20px;
+}
+.portfolio_hero {
+  width: 100%;
+  background-color: black;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  padding: 60px 40px;
+}
+
+.portfolio_hero_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.portfolio_hero_info h1 {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+.portfolio_hero_info h3 {
+  font-size: 25px;
+  color: rgb(214, 141, 5, 0.8);
+  margin-bottom: 10px;
+}
+
+.portfolio_hero_info p {
+  font-size:20px;
+  max-width: 500px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: rgba(60, 55, 55, 0.914);
+}
+
+.portfolio_hero_info button {
+  padding: 10px 20px;
+  background-color:black;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.portfolio_hero_info button:hover {
+  background-color: white;
+  color:black;
+}
+
+.portfolio_hero_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio_hero_image img {
+  width: 50%;
+  height: auto;
+  filter: grayscale(100%);
+  border-radius: 10px;
+}
+.portfolio_about {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 рівних колонок */
+  gap: 30px;
+  padding: 100px 40px;
+  background-color: black;
+  align-items: stretch;
+}
+
+.portfolio_about_image_cont {
+  grid-column: 2 / span 2;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio_about_image_cont img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: grayscale(100%);
+}
+
+.portfolio_about_content {
+  height: 100%;
+  grid-column: 4 / span 2; /* займає 2 центральні колонки: 4 і 5 */
+  background-color: #1e1e1e;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio_about_content_title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.portfolio_about_content_title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: white;
+  margin-top: 10px;
+}
+
+.portfolio_about_content_subtitle {
+  font-size: 1.2rem;
+  color: rgba(214, 141, 5, 0.8);
+  font-weight: bold;
+}
+
+.portfolio_about_content_text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.portfolio_about_content_button {
+  padding: 10px 20px;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.portfolio_about_content_button:hover {
+  background-color: white;
+  color: black;
+}
+
