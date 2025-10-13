@@ -120,9 +120,8 @@
 }
 
 .portfolio_hero_image img {
-  width: 50%;
+  width: 70%;
   height: auto;
-  filter: grayscale(100%);
   border-radius: 10px;
 }
 .portfolio_about {
