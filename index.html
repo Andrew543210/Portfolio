@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Portfolio</title>
   </head>
+
   <body>
     <header class="portfolio_header">
       <div class="portfolio_logo">
@@ -88,9 +89,27 @@
         RYAN'S PASSION IS PHOTOSHOOTS FOR LOOKBOOKS AND COMMERCIALS.
       </h3>
       <div class="portfolio_latest_works_carousel">
-       <div class="arrow_prev" role="button" aria-label="Наступне фото" tabindex="0"><i class="fa-solid fa-chevron-left"></i></div>
-        <div class="portfolio_latest_works_carousel_content"></div>
-        <div class="arrow_next" role="button" aria-label="Наступне фото" tabindex="0"><i class="fa-solid fa-chevron-right"></i></div>
+        <button class="arrow_prev" aria-label="Попереднє фото">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel_track-container">
+          <div class="carousel_track">
+            <div class="carousel_slide">
+              <img src="img/carousel_image_1.png" alt="Work 1" />
+            </div>
+            <div class="carousel_slide">
+              <img src="img/carousel_image_2.png" alt="Work 2" />
+            </div>
+            <div class="carousel_slide">
+              <img src="img/carousel_image_3.png" alt="Work 3" />
+            </div>
+          </div>
+        </div>
+
+        <button class="arrow_next" aria-label="Наступне фото">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
     </section>
     <script src="script.js"></script>

@@ -23,7 +23,7 @@
   margin-left: -150px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* або center, якщо хочеш центрувати */
+  align-items: flex-start;
 }
 .portfolio_logo_name {
   display: flex;
@@ -91,7 +91,7 @@
 }
 
 .portfolio_hero_info p {
-  font-size:20px;
+  font-size: 20px;
   max-width: 500px;
   margin-bottom: 20px;
   line-height: 1.5;
@@ -100,7 +100,7 @@
 
 .portfolio_hero_info button {
   padding: 10px 20px;
-  background-color:black;
+  background-color: black;
   border: 1px solid white;
   color: white;
   cursor: pointer;
@@ -110,7 +110,7 @@
 
 .portfolio_hero_info button:hover {
   background-color: white;
-  color:black;
+  color: black;
 }
 
 .portfolio_hero_image {
@@ -126,7 +126,7 @@
 }
 .portfolio_about {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 рівних колонок */
+  grid-template-columns: repeat(6, 1fr);
   gap: 30px;
   padding: 100px 40px;
   background-color: black;
@@ -151,7 +151,7 @@
 
 .portfolio_about_content {
   height: 100%;
-  grid-column: 4 / span 2; /* займає 2 центральні колонки: 4 і 5 */
+  grid-column: 4 / span 2; 
   background-color: #1e1e1e;
   padding: 40px;
   display: flex;
@@ -204,4 +204,101 @@
   background-color: white;
   color: black;
 }
+.portfolio_latest_works {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+  position: relative;
+}
 
+.portfolio_latest_works_title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.portfolio_latest_works_subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.portfolio_latest_works_subtitle::after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  background-color: white;
+  margin: 15px auto 0;
+  opacity: 0.5;
+}
+
+.portfolio_latest_works_carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.carousel_track-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel_track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel_slide {
+  min-width: 50%; 
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+
+.carousel_slide img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  border-radius: 5px;
+  background-color: black;
+  filter: grayscale(100%);
+}
+
+
+.arrow_prev,
+.arrow_next {
+  background: none;
+  border: none;
+  color: #b6862c;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+.arrow_prev:hover,
+.arrow_next:hover {
+  color: white;
+}
+
+/* Позиціонування стрілок */
+.arrow_prev {
+  left: -50px;
+}
+
+.arrow_next {
+  right: -50px;
+}
