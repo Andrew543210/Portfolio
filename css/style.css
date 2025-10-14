@@ -151,7 +151,7 @@
 
 .portfolio_about_content {
   height: 100%;
-  grid-column: 4 / span 2; 
+  grid-column: 4 / span 2;
   background-color: #1e1e1e;
   padding: 40px;
   display: flex;
@@ -223,16 +223,19 @@
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   letter-spacing: 1px;
+  display: inline-block;
 }
 
 .portfolio_latest_works_subtitle::after {
   content: "";
   display: block;
-  width: 20%;
-  height: 1px;
+  height: 2px;
   background-color: white;
-  margin: 15px auto 0;
   opacity: 0.5;
+  width: 0;
+  margin: 15px auto 0;
+  animation: underlineExpand 1s ease-out forwards;
+
 }
 
 .portfolio_latest_works_carousel {
@@ -256,14 +259,13 @@
 }
 
 .carousel_slide {
-  min-width: 50%; 
+  min-width: 50%;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
 }
-
 
 .carousel_slide img {
   width: 100%;
@@ -273,7 +275,6 @@
   background-color: black;
   filter: grayscale(100%);
 }
-
 
 .arrow_prev,
 .arrow_next {
@@ -294,11 +295,101 @@
   color: white;
 }
 
-/* Позиціонування стрілок */
 .arrow_prev {
   left: -50px;
 }
 
 .arrow_next {
   right: -50px;
+}
+.portfolio_faq {
+  background-color: #0f0f0f;
+  color: white;
+  padding: 100px 20%;
+  text-align: center;
+}
+
+.portfolio_faq_title {
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+}
+
+.portfolio_faq_subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.portfolio_faq_accordeon_container {
+  text-align: left;
+}
+.portfolio_faq_title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  height: 2px;
+  background-color: aliceblue;
+  border-radius: 2px;
+  width: 0;
+  animation: underlineExpand 1s ease-out forwards;
+}
+
+@keyframes underlineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.faq_item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px 0;
+  position: relative;
+}
+
+.faq_item summary {
+  font-size: 1.1rem;
+  color: #c08b2e;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.faq_item summary::after {
+  content: "+";
+  color: #c08b2e;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+
+.faq_item[open] summary::after {
+  content: "–";
+  transform: rotate(180deg);
+}
+
+.faq_item p {
+  color: #ccc;
+  margin-top: 15px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.faq_item[open] p {
+  max-height: 200px;
+  opacity: 1;
 }
