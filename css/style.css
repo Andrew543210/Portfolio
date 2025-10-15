@@ -63,7 +63,7 @@
 }
 .portfolio_hero {
   width: 100%;
-  background-color: black;
+  background-color: #070707;
   display: grid;
   grid-template-columns: 3fr 2fr;
   padding: 60px 40px;
@@ -146,7 +146,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
 }
 
 .portfolio_about_content {
@@ -235,7 +235,6 @@
   width: 0;
   margin: 15px auto 0;
   animation: underlineExpand 1s ease-out forwards;
-
 }
 
 .portfolio_latest_works_carousel {
@@ -303,7 +302,7 @@
   right: -50px;
 }
 .portfolio_faq {
-  background-color: #0f0f0f;
+  background-color: black;
   color: white;
   padding: 100px 20%;
   text-align: center;
@@ -340,15 +339,6 @@
   animation: underlineExpand 1s ease-out forwards;
 }
 
-@keyframes underlineExpand {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
 .faq_item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 20px 0;
@@ -373,7 +363,6 @@
   transition: transform 0.3s ease;
 }
 
-
 .faq_item[open] summary::after {
   content: "–";
   transform: rotate(180deg);
@@ -392,4 +381,120 @@
 .faq_item[open] p {
   max-height: 200px;
   opacity: 1;
+}
+/* ====== PORTFOLIO SERVICES ====== */
+.portfolio_services {
+  background-color: #070707;
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+}
+
+/* Заголовок "Services" */
+.portfolio_services_title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+}
+
+/* Підкреслення під "Services" */
+.portfolio_services_title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  animation: underlineExpand 1s ease-out forwards;
+}
+
+/* Підзаголовок */
+.portfolio_services_subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 20px;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+}
+
+/* Контейнер усіх сервісів */
+.portfolio_services_container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Один рядок сервісу */
+.portfolio_services_container_item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr 1fr; /* іконка | заголовок | текст | кнопка */
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 25px 40px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.portfolio_services_container_item:hover {
+  background-color: #222;
+}
+
+/* Іконка */
+.portfolio_services_container_item_image svg,.portfolio_services_container_item_image img[alt="Svg Street"] {
+  width: 60px;
+  height: 60px;
+  fill: none;
+  stroke: #ca8c20;
+  stroke-width: 2;
+  margin: 0 auto;
+}
+
+/* Назва сервісу */
+.portfolio_services_container_item_title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  text-align: left;
+}
+
+/* Опис */
+.portfolio_services_container_item_text {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Кнопка */
+.portfolio_services_container_item_button {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  border: 1px solid #777;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.portfolio_services_container_item_button:hover {
+  background-color: #c08b2e;
+  color: rgb(255, 255, 255);
+  border-color: #c08b2e;
+}
+
+@keyframes underlineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
