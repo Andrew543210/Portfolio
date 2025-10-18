@@ -448,7 +448,7 @@
 }
 
 /* Іконка */
-.portfolio_services_container_item_image svg{
+.portfolio_services_container_item_image svg {
   width: 60px;
   height: 60px;
   fill: none;
@@ -495,7 +495,7 @@
   grid-template-columns: repeat(7, 1fr); /* 7 рівних колонок */
   grid-template-rows: 1fr; /* одна вертикальна зона */
   height: 50vh;
-  background-image: url('https://res2.weblium.site/res/5ec6997a1d33f4002146b5a5/5ecb9b7c613bf80021e3611c?nowebp');
+  background-image: url("https://res2.weblium.site/res/5ec6997a1d33f4002146b5a5/5ecb9b7c613bf80021e3611c?nowebp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -508,7 +508,7 @@
   grid-row: 1;
   align-self: center; /* вертикально по центру */
   justify-self: center; /* по центру в межах області */
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 40px 60px;
   border-radius: 8px;
   max-width: 100%;
@@ -548,6 +548,144 @@
 .portfolio__shoot-button--learn:hover {
   background-color: #ca8c20;
   border-color: #ca8c20;
+}
+/* Секція та контейнер */
+.portfolio_reasons {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 60px 20px;
+}
+
+.portfolio_reasons_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Заголовок */
+.portfolio_reasons_title {
+  font-size: 36px;
+  font-family: "Georgia", serif;
+  color: #ffffff;
+  margin-bottom: 30px;
+  display: inline-block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.portfolio_reasons_title::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: white;
+  opacity: 0.5;
+  width: 0%;
+  margin: 15px auto 0;
+  animation: underlineExpand 1s ease-out forwards;
+}
+
+.portfolio_reasons_title,
+.portfolio_reasons_subtitle {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Підзаголовок */
+.portfolio_reasons_subtitle {
+  font-size: 15px;
+  font-family: "Arial", sans-serif;
+  text-transform: uppercase;
+  color: #ffffff99;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* Список блоків */
+.portfolio_reasons_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Окремий блок */
+.portfolio_reasons_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 360px;
+  flex: 0 0 360px;
+  color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+/* Анімація при наведенні */
+.portfolio_reasons_item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(202, 140, 32, 0.125);
+}
+
+/* Іконка */
+.portfolio_reasons_item_icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.portfolio_reasons_item_icon svg,
+.portfolio_reasons_item_icon img {
+  width: 60px;
+  height: 60px;
+  fill: #ca8c20;
+  color: #ca8c20;
+}
+
+/* Заголовок блоку */
+.portfolio_reasons_item_title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ca8c20;
+  margin-bottom: 15px;
+}
+
+/* Список пунктів */
+.portfolio_reasons_item_points {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.portfolio_reasons_item_point {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Крапка перед пунктом */
+.portfolio_reasons_item_point::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ca8c20;
+  font-size: 20px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+/* Анімація крапки при наведенні */
+.portfolio_reasons_item:hover .portfolio_reasons_item_point::before {
+  color: #f5c76a;
 }
 @keyframes underlineExpand {
   from {
