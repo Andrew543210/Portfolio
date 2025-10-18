@@ -229,7 +229,7 @@
 .portfolio_latest_works_subtitle::after {
   content: "";
   display: block;
-  height: 2px;
+  height: 1px;
   background-color: white;
   opacity: 0.5;
   width: 0;
@@ -332,10 +332,11 @@
   position: absolute;
   left: 0;
   bottom: -7px;
-  height: 2px;
+  height: 1px;
   background-color: aliceblue;
   border-radius: 2px;
   width: 0;
+  transform: translateX(6px);
   animation: underlineExpand 1s ease-out forwards;
 }
 
@@ -407,7 +408,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 0;
-  height: 2px;
+  height: 1px;
   background-color: white;
   border-radius: 2px;
   animation: underlineExpand 1s ease-out forwards;
@@ -447,7 +448,7 @@
 }
 
 /* Іконка */
-.portfolio_services_container_item_image svg,.portfolio_services_container_item_image img[alt="Svg Street"] {
+.portfolio_services_container_item_image svg{
   width: 60px;
   height: 60px;
   fill: none;
@@ -489,12 +490,70 @@
   color: rgb(255, 255, 255);
   border-color: #c08b2e;
 }
+.portfolio__shoot {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 рівних колонок */
+  grid-template-rows: 1fr; /* одна вертикальна зона */
+  height: 50vh;
+  background-image: url('https://res2.weblium.site/res/5ec6997a1d33f4002146b5a5/5ecb9b7c613bf80021e3611c?nowebp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  overflow: hidden;
+}
 
+.portfolio__shoot-content {
+  grid-column: 2 / 4; /* займає колонки 2 і 3 */
+  grid-row: 1;
+  align-self: center; /* вертикально по центру */
+  justify-self: center; /* по центру в межах області */
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 40px 60px;
+  border-radius: 8px;
+  max-width: 100%;
+  text-align: center;
+}
+.portfolio__shoot-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.portfolio__shoot-subtitle {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.portfolio__shoot-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.portfolio__shoot-button {
+  padding: 12px 24px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.portfolio__shoot-button--quote:hover,
+.portfolio__shoot-button--learn:hover {
+  background-color: #ca8c20;
+  border-color: #ca8c20;
+}
 @keyframes underlineExpand {
   from {
     width: 0;
   }
   to {
-    width: 100%;
+    width: 80%;
   }
 }
