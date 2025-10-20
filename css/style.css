@@ -495,7 +495,7 @@
   grid-template-columns: repeat(7, 1fr); /* 7 рівних колонок */
   grid-template-rows: 1fr; /* одна вертикальна зона */
   height: 50vh;
-  background-image: url("https://res2.weblium.site/res/5ec6997a1d33f4002146b5a5/5ecb9b7c613bf80021e3611c?nowebp");
+  background-image: url("../img/lets_shoot_bg.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -570,9 +570,6 @@
   margin-bottom: 30px;
   display: inline-block;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
 }
 
 .portfolio_reasons_title::after {
@@ -600,7 +597,6 @@
   text-transform: uppercase;
   color: #ffffff99;
   margin-bottom: 60px;
-  text-align: center;
 }
 
 /* Список блоків */
@@ -630,7 +626,7 @@
 /* Анімація при наведенні */
 .portfolio_reasons_item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(202, 140, 32, 0.125);
+  box-shadow: 0 8px 20px rgba(202, 140, 32, 0.150);
 }
 
 /* Іконка */
@@ -641,8 +637,7 @@
   margin-bottom: 20px;
 }
 
-.portfolio_reasons_item_icon svg,
-.portfolio_reasons_item_icon img {
+.portfolio_reasons_item_icon svg{
   width: 60px;
   height: 60px;
   fill: #ca8c20;
@@ -677,7 +672,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #ca8c20;
+  color: #000000;
   font-size: 20px;
   line-height: 1;
   transition: color 0.3s ease;
