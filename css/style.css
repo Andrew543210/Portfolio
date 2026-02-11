@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+html { scroll-behavior: smooth; }
 .portfolio_navigation_links {
   list-style: none;
   display: flex;
@@ -798,4 +799,94 @@
   to {
     width: 80%;
   }
+}
+
+/* Додаткові плавні анімації для каруселей */
+.carousel_slide img {
+  transition: transform 0.45s ease, filter 0.45s ease, opacity 0.45s ease;
+  opacity: 0.95;
+}
+.carousel_slide img:hover {
+  transform: scale(1.02);
+  filter: none;
+  opacity: 1;
+}
+.portfolio_brands_logo_block {
+  transition: transform 0.45s ease, box-shadow 0.35s ease;
+}
+.portfolio_brands_logo_block:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+.active-slide {
+  opacity: 1;
+}
+
+/* дрібні покращення відступів для мобільних */
+@media (max-width: 700px) {
+  .portfolio_brands_logo_block {
+    width: 140px;
+    height: 140px;
+  }
+  .carousel_slide img {
+    height: 320px;
+  }
+}
+
+/* CONTACT FORM */
+.portfolio_contact_form {
+  background: #000;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+.portfolio_contact_container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #111;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.portfolio_contact_container h2 {
+  color: #fff;
+  margin-bottom: 8px;
+}
+.portfolio_contact_container p {color: #ccc; margin-bottom: 18px}
+.quote-form {display: grid; gap: 12px}
+.form_row {display: flex; flex-direction: column; text-align: left}
+.form_row label {color: #c08b2e; font-weight: 700; margin-bottom: 6px}
+.form_row input, .form_row select {padding: 10px; border-radius: 6px; border: 1px solid #333; background: #0b0b0b; color: #fff}
+.form_actions {display:flex; justify-content:flex-end}
+.contact_send {
+  background: linear-gradient(90deg,#c08b2e,#ff9b2e);
+  color: #000;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.contact_send:hover {transform: translateY(-3px); box-shadow: 0 8px 24px rgba(192,139,46,0.28)}
+.contact_send:active {transform: translateY(0)}
+
+/* FOOTER */
+.portfolio_footer {background:#000; color:#fff; padding:40px 20px}
+.footer_container {display:flex; gap:30px; max-width:1100px; margin:0 auto; align-items:flex-start; justify-content:space-between}
+.footer_brand {text-align:left}
+.footer_brand .portfolio_logo_name {font-size:1.5rem}
+.footer_contacts h4, .footer_links h4 {color:#c08b2e}
+.footer_contacts p {color:#ccc}
+.footer_socials {display:flex; gap:12px; margin-top:10px}
+.footer_socials a {color:#c08b2e; font-size:20px}
+.footer_links ul {list-style:none}
+.footer_links ul li {margin:8px 0}
+.footer_links a {color:#ccc; text-decoration:none}
+.footer_links a:hover {color:#fff}
+.footer_copyright {text-align:center; color:#777; margin-top:20px}
+
+@media (max-width:900px) {
+  .footer_container {flex-direction:column; align-items:center; gap:20px}
+  .form_actions {justify-content:center}
 }

@@ -23,16 +23,16 @@
       </div>
       <div class="portfolio_navigation">
         <ul class="portfolio_navigation_links">
-          <li><a class="portfolio_navigation_link" href="#">About</a></li>
-          <li><a class="portfolio_navigation_link" href="#">Services</a></li>
+          <li><a class="portfolio_navigation_link" href="#portfolio_about">About</a></li>
+          <li><a class="portfolio_navigation_link" href="#portfolio_services">Services</a></li>
           <li>
-            <a class="portfolio_navigation_link" href="#">Latest works</a>
+            <a class="portfolio_navigation_link" href="#portfolio_latest_works">Latest works</a>
           </li>
-          <li><a class="portfolio_navigation_link" href="#">Pricing</a></li>
+          <li><a class="portfolio_navigation_link" href="#portfolio__shoot">Pricing</a></li>
           <li>
-            <a class="portfolio_navigation_link" href="#">Testimonials</a>
+            <a class="portfolio_navigation_link" href="#portfolio_faq">Testimonials</a>
           </li>
-          <li><a class="portfolio_navigation_link" href="#">Contact</a></li>
+         
         </ul>
         <div class="portfolio_navigation_social_icons">
           <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -55,7 +55,7 @@
         <img src="img/ryan_allen_hero_image.png" alt="Ryan Allen" />
       </div>
     </section>
-    <section class="portfolio_about">
+    <section class="portfolio_about" id="portfolio_about">
       <div class="portfolio_about_image_cont">
         <img src="img/portfolio_about_image.png" alt="" />
       </div>
@@ -80,7 +80,7 @@
         <button class="portfolio_about_content_button">Learn More</button>
       </div>
     </section>
-    <section class="portfolio_latest_works">
+    <section class="portfolio_latest_works" id="portfolio_latest_works">
       <h2 class="portfolio_latest_works_title">Latest works</h2>
       <h3 class="portfolio_latest_works_subtitle">
         RYAN'S PASSION IS PHOTOSHOOTS FOR LOOKBOOKS AND COMMERCIALS.
@@ -109,7 +109,7 @@
         </button>
       </div>
     </section>
-    <section class="portfolio_services">
+    <section class="portfolio_services" id="portfolio_services">
       <h2 class="portfolio_services_title">Services</h2>
       <p class="portfolio_services_subtitle">
         RYAN IS OPEN FOR NEW OPPORTUNITIES AND COLLABORATIONS.
@@ -286,7 +286,7 @@
         </div>
       </div>
     </section>
-    <section class="portfolio__shoot">
+    <section class="portfolio__shoot" id="portfolio__shoot">
       <div class="portfolio__shoot-content">
         <h2 class="portfolio__shoot-title">Let’s Shoot!</h2>
         <p class="portfolio__shoot-subtitle">
@@ -676,7 +676,7 @@
     </button>
   </div>
 </section>
-    <section class="portfolio_faq">
+    <section class="portfolio_faq" id="portfolio_faq">
       <h2 class="portfolio_faq_title">FAQ</h2>
       <p class="portfolio_faq_subtitle">
         IF YOU HAVE ANY QUESTIONS, PLEASE BROWSE THROUGH THE SECTION BELOW.
@@ -734,5 +734,66 @@
     </section>
 
     <script src="script.js"></script>
+    <section class="portfolio_contact_form" id="contact-form">
+      <div class="portfolio_contact_container">
+        <h2>Request a Quote</h2>
+        <p>Fill out the form and Ryan will contact you shortly.</p>
+        <form id="quoteForm" class="quote-form">
+          <div class="form_row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form_row">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form_row">
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option value="portraits">Portraits</option>
+              <option value="street">Street Style</option>
+              <option value="advertising">Advertising</option>
+              <option value="events">Events</option>
+            </select>
+          </div>
+          <div class="form_row form_actions">
+            <button type="submit" class="contact_send">Send Request</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="portfolio_footer">
+      <div class="footer_container">
+        <div class="footer_brand">
+          <div class="portfolio_logo_name">
+            <span class="logo_letter">R</span>
+            <span class="portfolio_logo_dot">.</span>
+            <span class="logo_surname">Allen</span>
+          </div>
+          <div class="logo_role">Photography</div>
+        </div>
+        <div class="footer_contacts">
+          <h4>Contact</h4>
+          <p>email: ryan.allen@example.com</p>
+          <p>phone: +1 212 555 0123</p>
+          <div class="footer_socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer_links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#portfolio_about">About</a></li>
+            <li><a href="#portfolio_latest_works">Latest works</a></li>
+            <li><a href="#portfolio_services">Services</a></li>
+            <li><a href="#contact-form">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer_copyright">© 2026 Ryan Allen. All rights reserved.</div>
+    </footer>
   </body>
 </html>
