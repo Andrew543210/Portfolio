@@ -251,11 +251,13 @@ html { scroll-behavior: smooth; }
 .carousel_track-container {
   overflow: hidden;
   width: 100%;
+  will-change: contents;
 }
 
 .carousel_track {
   display: flex;
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
 .carousel_slide {
@@ -736,7 +738,7 @@ html { scroll-behavior: smooth; }
 .portfolio_brands_track {
   display: flex;
   gap: 0;
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.5s ease;
 }
 
 .portfolio_brands_slide {
@@ -885,6 +887,44 @@ html { scroll-behavior: smooth; }
 .footer_links a {color:#ccc; text-decoration:none}
 .footer_links a:hover {color:#fff}
 .footer_copyright {text-align:center; color:#777; margin-top:20px}
+
+/* PRICING SECTION */
+.portfolio_pricing {background: linear-gradient(135deg, #000 0%, #070707 100%); padding: 80px 20px; color: #fff; text-align: center;}
+.portfolio_pricing_container {max-width: 1100px; margin: 0 auto;}
+.portfolio_pricing_title {font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; display: inline-block; position: relative;}
+.portfolio_pricing_title::after {content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 1px; background-color: white; border-radius: 2px; animation: underlineExpand 1s ease-out forwards;}
+.portfolio_pricing_subtitle {font-size: 0.9rem; color: #ccc; margin-bottom: 50px; letter-spacing: 1px; display: block; margin-top: 20px;}
+.portfolio_pricing_grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;}
+.portfolio_pricing_card {background: #0b0b0b; border: 1px solid #1a1a1a; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; position: relative;}
+.portfolio_pricing_card:hover {transform: translateY(-5px); border-color: #ca8c20; box-shadow: 0 10px 30px rgba(202, 140, 32, 0.15);}
+.pricing_card_featured {border-color: #ca8c20; background: linear-gradient(135deg, #0b0b0b 0%, #1a1410 100%);}
+.pricing_card_badge {position: absolute; top: 10px; right: 10px; background: #ca8c20; color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;}
+.pricing_card_icon {font-size: 2.5rem; color: #ca8c20; margin-bottom: 15px;}
+.pricing_card_title {font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase;}
+.pricing_card_price {font-size: 2.2rem; font-weight: 700; color: #ca8c20; margin-bottom: 4px;}
+.pricing_card_duration {font-size: 0.85rem; color: #888; margin-bottom: 20px;}
+.pricing_card_features {list-style: none; text-align: left; margin-bottom: 25px; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; padding: 20px 0;}
+.pricing_card_features li {padding: 8px 0; color: #ccc; font-size: 0.9rem;}
+.pricing_card_features li::before {content: '✓ '; color: #ca8c20; font-weight: 700; margin-right: 8px;}
+.pricing_card_button {background: linear-gradient(90deg, #ca8c20, #ff9b2e); color: #000; border: none; padding: 12px 28px; border-radius: 30px; font-weight: 700; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease;}
+.pricing_card_button:hover {transform: translateY(-2px); box-shadow: 0 8px 24px rgba(202, 140, 32, 0.3);}
+.pricing_note {background: #0b0b0b; border: 1px solid #1a1a1a; padding: 20px; border-radius: 8px; text-align: center; color: #ccc; font-size: 0.9rem;}
+.pricing_note strong {color: #ca8c20;}
+
+/* TESTIMONIALS SECTION */
+.portfolio_testimonials {background: #000; padding: 80px 20px; color: #fff; text-align: center;}
+.portfolio_testimonials_container {max-width: 1100px; margin: 0 auto;}
+.portfolio_testimonials_title {font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; display: inline-block; position: relative;}
+.portfolio_testimonials_title::after {content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 1px; background-color: white; border-radius: 2px; animation: underlineExpand 1s ease-out forwards;}
+.portfolio_testimonials_subtitle {font-size: 0.9rem; color: #ccc; margin-bottom: 50px; letter-spacing: 1px; display: block; margin-top: 20px;}
+.portfolio_testimonials_grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;}
+.portfolio_testimonials_card {background: #070707; border: 1px solid #1a1a1a; padding: 30px; border-radius: 8px; transition: all 0.3s ease;}
+.portfolio_testimonials_card:hover {border-color: #ca8c20; box-shadow: 0 8px 24px rgba(202, 140, 32, 0.1);}
+.testimonials_card_text {margin-bottom: 30px; border-left: 3px solid #ca8c20; padding-left: 20px;}
+.testimonials_quote {font-size: 1rem; line-height: 1.6; color: #ddd; font-style: italic;}
+.testimonials_card_author {border-top: 1px solid #1a1a1a; padding-top: 20px;}
+.testimonials_author_name {font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 4px;}
+.testimonials_author_role {font-size: 0.85rem; color: #ca8c20;}
 
 @media (max-width:900px) {
   .footer_container {flex-direction:column; align-items:center; gap:20px}

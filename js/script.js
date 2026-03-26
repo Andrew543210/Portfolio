@@ -1,12 +1,14 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Універсальний хелпер для нескінченних каруселей
+  // ========================================================
+  // CAROUSEL SETUP - Infinite Scroll Functionality
+  // ========================================================
   function setupInfiniteCarousel({
     trackSelector,
     containerSelector,
     prevSelector,
     nextSelector,
     visible = 1,
+    transitionDuration = "0.5s ease",
   }) {
     const track = document.querySelector(trackSelector);
     const container = document.querySelector(containerSelector);
@@ -40,27 +42,35 @@ document.addEventListener("DOMContentLoaded", function () {
       // невелика пауза, щоб трансіція далі спрацювала коректно
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          track.style.transition = "transform 0.5s ease";
+          track.style.transition = `transform ${transitionDuration}`;
         });
       });
     }
 
+    let isResetting = false;
+
     function moveTo(index) {
+      if (isResetting) return; // Prevent clicks during reset
       const containerWidth = container.getBoundingClientRect().width;
       const slideWidth = containerWidth / visible;
       track.style.transform = `translateX(-${slideWidth * index}px)`;
     }
 
     nextBtn && nextBtn.addEventListener("click", () => {
-      currentIndex++;
-      moveTo(currentIndex);
+      if (!isResetting) {
+        currentIndex++;
+        moveTo(currentIndex);
+      }
     });
     prevBtn && prevBtn.addEventListener("click", () => {
-      currentIndex--;
-      moveTo(currentIndex);
+      if (!isResetting) {
+        currentIndex--;
+        moveTo(currentIndex);
+      }
     });
 
     track.addEventListener("transitionend", () => {
+      isResetting = true;
       // коли дійшли до клонів — миттєво переносимось назад без анімації
       const containerWidth = container.getBoundingClientRect().width;
       const slideWidth = containerWidth / visible;
@@ -74,8 +84,15 @@ document.addEventListener("DOMContentLoaded", function () {
       // миттєвий зсув на еквівалентну позицію без анімації
       track.style.transition = "none";
       track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-      // повертаймо анімацію після кадру
-      requestAnimationFrame(() => (track.style.transition = "transform 0.5s ease"));
+      // Force reflow to apply the transform immediately
+      void track.offsetHeight;
+      // Use requestAnimationFrame to ensure browser renders the change
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          track.style.transition = `transform ${transitionDuration}`;
+          isResetting = false;
+        });
+      });
       // оновлюємо класи active
       updateActive();
     });
@@ -99,7 +116,9 @@ document.addEventListener("DOMContentLoaded", function () {
     updateActive();
   }
 
-  // Налаштовуємо бренди: показати 4 одночасно, зациклення
+  // ========================================================
+  // BRANDS CAROUSEL INITIALIZATION - Show 4 items
+  // ========================================================
   setupInfiniteCarousel({
     trackSelector: ".portfolio_brands_track",
     containerSelector: ".portfolio_brands_track_container",
@@ -108,16 +127,21 @@ document.addEventListener("DOMContentLoaded", function () {
     visible: 4,
   });
 
-  // Налаштовуємо Latest Works: показати 2 одночасно, зациклення
+  // ========================================================
+  // LATEST WORKS CAROUSEL INITIALIZATION - Show 2 items
+  // ========================================================
   setupInfiniteCarousel({
     trackSelector: ".carousel_track",
     containerSelector: ".carousel_track-container",
     prevSelector: ".arrow_prev",
     nextSelector: ".arrow_next",
     visible: 2,
+    transitionDuration: "0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
   });
 
-  // Додаткові дрібні анімації: клавіші стрілок керують каруселями
+  // ========================================================
+  // KEYBOARD NAVIGATION - Arrow keys control carousels
+  // ========================================================
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
       const prev = document.querySelectorAll(".portfolio_brands_arrow_prev, .arrow_prev");
@@ -129,22 +153,74 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Переход до форми з усіх кнопок 'Request a quote'
-  const requestButtons = document.querySelectorAll(
-    ".portfolio_services_container_item_button, .portfolio__shoot-button--quote, .portfolio_about_content_button"
-  );
-  const formSection = document.getElementById("contact-form");
+  // ========================================================
+  // ALL BUTTONS NAVIGATION HANDLERS
+  // ========================================================
+  
+  const formSection = document.getElementById("portfolio_contact");
   const nameInput = document.getElementById("name");
-  requestButtons.forEach((btn) => {
+  const faqSection = document.getElementById("portfolio_faq");
+  const servicesSection = document.getElementById("portfolio_services");
+  
+  // Helper function to scroll to section and focus input if needed
+  function scrollToSection(sectionId, focusInput = false) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      if (focusInput && nameInput) {
+        setTimeout(() => nameInput.focus(), 600);
+      }
+    }
+  }
+  
+  // Hero "Contact Ryan!" button → Contact Form
+  const heroButton = document.querySelector(".portfolio_hero_info button");
+  if (heroButton) {
+    heroButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      scrollToSection("portfolio_contact", true);
+    });
+  }
+  
+  // About "Learn More" button → Contact Form
+  const aboutButton = document.querySelector(".portfolio_about_content_button");
+  if (aboutButton) {
+    aboutButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      scrollToSection("portfolio_contact", true);
+    });
+  }
+  
+  // Services "Request a quote" buttons → Contact Form
+  const serviceButtons = document.querySelectorAll(".portfolio_services_container_item_button");
+  serviceButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      if (!formSection) return;
-      formSection.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => nameInput && nameInput.focus(), 600);
+      scrollToSection("portfolio_contact", true);
     });
   });
+  
+  // Let's Shoot "Request a Quote" button → Contact Form
+  const shootQuoteButton = document.querySelector(".portfolio__shoot-button--quote");
+  if (shootQuoteButton) {
+    shootQuoteButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      scrollToSection("portfolio_contact", true);
+    });
+  }
+  
+  // Let's Shoot "Learn More" button → Why Ryan Section
+  const learnMoreButton = document.querySelector(".portfolio__shoot-button--learn");
+  if (learnMoreButton) {
+    learnMoreButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      scrollToSection("portfolio_reasons");
+    });
+  }
 
-  // Обробник форми
+  // ========================================================
+  // FORM SUBMISSION HANDLER - Process quote requests
+  // ========================================================
   const quoteForm = document.getElementById("quoteForm");
   if (quoteForm) {
     quoteForm.addEventListener("submit", (e) => {
@@ -169,4 +245,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
